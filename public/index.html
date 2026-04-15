@@ -7,15 +7,11 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body class="auth-body">
-
   <div class="auth-wrapper">
-
-    <!-- LEFT SIDE -->
     <div class="auth-left">
       <div class="brand-card">
         <h1>MediCare Plus</h1>
         <p>Advanced Hospital Management System</p>
-
         <div class="feature-list">
           <div class="feature-item">Patient Management</div>
           <div class="feature-item">Doctor Management</div>
@@ -25,45 +21,33 @@
       </div>
     </div>
 
-    <!-- RIGHT SIDE -->
     <div class="auth-right">
       <div class="auth-box">
-
-        <!-- Tabs -->
         <div class="tab-buttons">
-          <button id="showLoginBtn" class="tab-btn active">Login</button>
-          <button id="showRegisterBtn" class="tab-btn">Register</button>
+          <button type="button" id="showLoginBtn" class="tab-btn active">Login</button>
+          <button type="button" id="showRegisterBtn" class="tab-btn">Register</button>
         </div>
 
-        <!-- LOGIN FORM -->
-        <form id="loginForm" class="auth-form" action="/login" method="POST">
+        <form id="loginForm" class="auth-form">
           <h2>Welcome Back</h2>
-
-          <input type="email" name="email" placeholder="Enter Email" required/>
-          <input type="password" name="password" placeholder="Enter Password" required/>
-
+          <input type="email" id="loginEmail" placeholder="Enter Email" required />
+          <input type="password" id="loginPassword" placeholder="Enter Password" required />
           <button type="submit" class="primary-btn">Login</button>
         </form>
 
-        <!-- REGISTER FORM -->
-        <form id="registerForm" class="auth-form hidden" action="/register" method="POST">
+        <form id="registerForm" class="auth-form hidden">
           <h2>Create Account</h2>
-
-          <input type="text" name="fullName" placeholder="Full Name" required/>
-          <input type="email" name="email" placeholder="Email Address" required/>
-          <input type="password" name="password" placeholder="Create Password" required/>
-
+          <input type="text" id="registerFullName" placeholder="Full Name" required />
+          <input type="email" id="registerEmail" placeholder="Email Address" required />
+          <input type="password" id="registerPassword" placeholder="Create Password" required />
           <button type="submit" class="primary-btn">Register</button>
         </form>
 
         <p id="authMessage" class="message"></p>
-
       </div>
     </div>
-
   </div>
 
   <script src="auth.js"></script>
-
 </body>
 </html>

@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hospital Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body class="dashboard-body">
   <div class="dashboard-layout">
@@ -50,22 +50,21 @@
             <p id="totalAppointments">0</p>
           </div>
           <div class="stat-card">
-            <h3>Total Admins</h3>
+            <h3>Total Users</h3>
             <p id="totalUsers">0</p>
           </div>
         </div>
 
         <div class="welcome-panel">
           <h2>Welcome to MediCare Plus</h2>
-          <p>This advanced dashboard helps you manage patients, doctors and appointments in one place.</p>
+          <p>This dashboard helps you manage patients, doctors and appointments in one place.</p>
         </div>
       </section>
 
       <section id="patientsSection" class="content-section">
         <div class="card">
-          <h2 id="patientFormTitle">Add Patient</h2>
+          <h2>Add Patient</h2>
           <form id="patientForm" class="form-grid">
-            <input type="hidden" id="patientId" />
             <input type="text" id="patientName" placeholder="Patient Name" required />
             <input type="number" id="patientAge" placeholder="Age" required />
             <select id="patientGender" required>
@@ -77,18 +76,14 @@
             <input type="text" id="patientDisease" placeholder="Disease" required />
             <input type="text" id="patientPhone" placeholder="Phone Number" required />
             <input type="text" id="patientAddress" placeholder="Address" required />
-            <button type="submit" id="patientSubmitBtn" class="primary-btn full-width">Add Patient</button>
-            <button type="button" id="patientCancelBtn" class="secondary-btn full-width hidden">Cancel Edit</button>
+            <button type="submit" class="primary-btn full-width">Add Patient</button>
           </form>
         </div>
 
         <div class="card">
           <div class="list-header">
             <h2>Patient List</h2>
-            <div class="list-tools">
-              <input type="text" id="patientSearch" placeholder="Search patient..." class="search-input" />
-              <button type="button" class="secondary-btn" onclick="loadPatients()">Refresh</button>
-            </div>
+            <button type="button" class="secondary-btn" onclick="loadPatients()">Refresh</button>
           </div>
           <div id="patientsList" class="list-grid"></div>
         </div>
@@ -96,25 +91,20 @@
 
       <section id="doctorsSection" class="content-section">
         <div class="card">
-          <h2 id="doctorFormTitle">Add Doctor</h2>
+          <h2>Add Doctor</h2>
           <form id="doctorForm" class="form-grid">
-            <input type="hidden" id="doctorId" />
             <input type="text" id="doctorName" placeholder="Doctor Name" required />
             <input type="text" id="doctorSpecialization" placeholder="Specialization" required />
             <input type="text" id="doctorExperience" placeholder="Experience (e.g. 5 Years)" required />
             <input type="text" id="doctorPhone" placeholder="Phone Number" required />
-            <button type="submit" id="doctorSubmitBtn" class="primary-btn full-width">Add Doctor</button>
-            <button type="button" id="doctorCancelBtn" class="secondary-btn full-width hidden">Cancel Edit</button>
+            <button type="submit" class="primary-btn full-width">Add Doctor</button>
           </form>
         </div>
 
         <div class="card">
           <div class="list-header">
             <h2>Doctor List</h2>
-            <div class="list-tools">
-              <input type="text" id="doctorSearch" placeholder="Search doctor..." class="search-input" />
-              <button type="button" class="secondary-btn" onclick="loadDoctors()">Refresh</button>
-            </div>
+            <button type="button" class="secondary-btn" onclick="loadDoctors()">Refresh</button>
           </div>
           <div id="doctorsList" class="list-grid"></div>
         </div>

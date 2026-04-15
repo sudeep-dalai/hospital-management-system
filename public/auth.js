@@ -29,18 +29,24 @@ registerForm.addEventListener("submit", async (e) => {
     password: document.getElementById("registerPassword").value.trim()
   };
 
-  const res = await fetch("/register", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
+  try {
+    const res = await fetch("/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
 
-  const result = await res.json();
-  authMessage.textContent = result.message;
+    const result = await res.json();
+    authMessage.textContent = result.message;
 
-  if (res.ok) {
-    registerForm.reset();
-    showLoginBtn.click();
+    if (res.ok && result.success) {
+      registerForm.reset();
+      showLoginBtn.click();
+    }
+  } catch (error) {
+    authMessage.textContent = "Registration failed.";
   }
 });
 
@@ -52,16 +58,23 @@ loginForm.addEventListener("submit", async (e) => {
     password: document.getElementById("loginPassword").value.trim()
   };
 
-  const res = await fetch("/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
+  try {
+    const res = await fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
 
-  const result = await res.json();
-  authMessage.textContent = result.message;
+    const result = await res.json();
+    authMessage.textContent = result.message;
 
-  if (res.ok) {
-    window.location.href = "/dashboard.html";
+    if (res.ok && result.success) {
+      localStorage.setItem("loggedInUser", JSON.stringify(result.user));
+      window.location.href = "/dashboard.html";
+    }
+  } catch (error) {
+    authMessage.textContent = "Login failed.";
   }
 });
