@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hospital Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-body">
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <h2 class="logo">MediCare Plus</h2>
+
+      <div class="user-card">
+        <p class="small-label">Logged in as</p>
+        <h3 id="userName">Admin</h3>
+        <p id="userEmail">admin@email.com</p>
+      </div>
+
+      <nav class="menu">
+        <button type="button" class="menu-btn active" data-section="overviewSection">Overview</button>
+        <button type="button" class="menu-btn" data-section="patientsSection">Patients</button>
+        <button type="button" class="menu-btn" data-section="doctorsSection">Doctors</button>
+        <button type="button" class="menu-btn" data-section="appointmentsSection">Appointments</button>
+      </nav>
+
+      <button type="button" id="logoutBtn" class="logout-btn">Logout</button>
+    </aside>
+
+    <main class="main-content">
+      <div class="topbar">
+        <div>
+          <h1>Hospital Dashboard</h1>
+          <p>Manage your hospital system easily</p>
+        </div>
+      </div>
+
+      <section id="overviewSection" class="content-section active-section">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Total Patients</h3>
+            <p id="totalPatients">0</p>
+          </div>
+          <div class="stat-card">
+            <h3>Total Doctors</h3>
+            <p id="totalDoctors">0</p>
+          </div>
+          <div class="stat-card">
+            <h3>Total Appointments</h3>
+            <p id="totalAppointments">0</p>
+          </div>
+          <div class="stat-card">
+            <h3>Total Admins</h3>
+            <p id="totalUsers">0</p>
+          </div>
+        </div>
+
+        <div class="welcome-panel">
+          <h2>Welcome to MediCare Plus</h2>
+          <p>This advanced dashboard helps you manage patients, doctors and appointments in one place.</p>
+        </div>
+      </section>
+
+      <section id="patientsSection" class="content-section">
+        <div class="card">
+          <h2 id="patientFormTitle">Add Patient</h2>
+          <form id="patientForm" class="form-grid">
+            <input type="hidden" id="patientId" />
+            <input type="text" id="patientName" placeholder="Patient Name" required />
+            <input type="number" id="patientAge" placeholder="Age" required />
+            <select id="patientGender" required>
+              <option value="">Select Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+            <input type="text" id="patientDisease" placeholder="Disease" required />
+            <input type="text" id="patientPhone" placeholder="Phone Number" required />
+            <input type="text" id="patientAddress" placeholder="Address" required />
+            <button type="submit" id="patientSubmitBtn" class="primary-btn full-width">Add Patient</button>
+            <button type="button" id="patientCancelBtn" class="secondary-btn full-width hidden">Cancel Edit</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="list-header">
+            <h2>Patient List</h2>
+            <div class="list-tools">
+              <input type="text" id="patientSearch" placeholder="Search patient..." class="search-input" />
+              <button type="button" class="secondary-btn" onclick="loadPatients()">Refresh</button>
+            </div>
+          </div>
+          <div id="patientsList" class="list-grid"></div>
+        </div>
+      </section>
+
+      <section id="doctorsSection" class="content-section">
+        <div class="card">
+          <h2 id="doctorFormTitle">Add Doctor</h2>
+          <form id="doctorForm" class="form-grid">
+            <input type="hidden" id="doctorId" />
+            <input type="text" id="doctorName" placeholder="Doctor Name" required />
+            <input type="text" id="doctorSpecialization" placeholder="Specialization" required />
+            <input type="text" id="doctorExperience" placeholder="Experience (e.g. 5 Years)" required />
+            <input type="text" id="doctorPhone" placeholder="Phone Number" required />
+            <button type="submit" id="doctorSubmitBtn" class="primary-btn full-width">Add Doctor</button>
+            <button type="button" id="doctorCancelBtn" class="secondary-btn full-width hidden">Cancel Edit</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="list-header">
+            <h2>Doctor List</h2>
+            <div class="list-tools">
+              <input type="text" id="doctorSearch" placeholder="Search doctor..." class="search-input" />
+              <button type="button" class="secondary-btn" onclick="loadDoctors()">Refresh</button>
+            </div>
+          </div>
+          <div id="doctorsList" class="list-grid"></div>
+        </div>
+      </section>
+
+      <section id="appointmentsSection" class="content-section">
+        <div class="card">
+          <h2>Book Appointment</h2>
+          <form id="appointmentForm" class="form-grid">
+            <input type="text" id="appointmentPatient" placeholder="Patient Name" required />
+            <input type="text" id="appointmentDoctor" placeholder="Doctor Name" required />
+            <input type="date" id="appointmentDate" required />
+            <input type="time" id="appointmentTime" required />
+            <button type="submit" class="primary-btn full-width">Book Appointment</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="list-header">
+            <h2>Appointment List</h2>
+            <button type="button" class="secondary-btn" onclick="loadAppointments()">Refresh</button>
+          </div>
+          <div id="appointmentsList" class="list-grid"></div>
+        </div>
+      </section>
+
+      <p id="dashboardMessage" class="message dashboard-message"></p>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
